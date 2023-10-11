@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+    background-image: url('../img/4882066.jpg');
+    background-size: cover;
+}
+
+.perfil{
+    width: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: rgba(42, 56, 84, 0.278);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.perfil img{
+    width: 128px;
+    border-radius: 50%;
+}
+
+.perfil > div:not(:last-child){
+    margin-bottom: 25px;
+}
+
+
+button{
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 20px;
+    font-weight: 800;
+}
+
+
+button:hover{
+    cursor: pointer;
+    background-color: rgb(9, 84, 213);
+    color: white;
+    outline: 1px solid #fff;
+    transition: all ease-in-out 200ms;
+    border: none;
+}
