@@ -8,22 +8,23 @@
                
             if(isset($_POST['nome']) && isset($_POST['senha'])){
                 $nome = strip_tags(filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS));
-                $senha = strip_tags(filter_input(INPUT_POST, 'senha', FILTER_VALIDATE_INT));
+                $senha = filter_input(INPUT_POST, 'senha', FILTER_VALIDATE_INT);
 
-                $query = $con->query("SELECT * FROM [usuario] WHERE [nome] = '$nome' AND [senha] = '$senha' ");
-                $select = $query->fetch(PDO::FETCH_ASSOC);
+                if(!is_numeric($nome) && is_int($senha)){
+                    $query = $con->query("SELECT * FROM [usuario] WHERE [nome] = '$nome' AND [senha] = '$senha' ");
+                    $select = $query->fetch(PDO::FETCH_ASSOC);
                 
-                if($select['nome'] == $nome && $select['senha'] == $senha){
-                    header("location: painel.php");
-                    $_SESSION['user'] = $select;
-                    header("location: painel.php");
-                    exit;
+                    if(array_key_exists('nome', $select) && $select['senha'] == $senha){
+                        $_SESSION['user'] = $select;
+                        header("location: painel.php");
+                        exit;
                 }
-
                 
-             } else{
-                echo "Digite algo";
+             }  else{
+                header("location: logar.php");
+                exit;
              }
+            }
         } catch(Exception $e){
             echo $e->getMessage();
             exit;
